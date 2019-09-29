@@ -5,13 +5,15 @@ class BinaryTree
 
     def self.on(grid) 
         grid.each_cell do |cell|
-            neighbours = []
-            neighbours << cell.north if cell.north
-            neighbours << cell.east if cell.east
+            if cell.north || cell.east 
+                neighbours = []
+                neighbours << cell.north if cell.north
+                neighbours << cell.east if cell.east
 
-            neighbour = neighbours.sample
+                neighbour = neighbours.sample
 
-            cell.link(neighbour) if neighbour
+                cell.link(neighbour) if neighbour
+            end
         end
 
         grid
